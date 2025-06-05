@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-siziz ng: border-box;
+    box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
   }
   
@@ -95,4 +95,8 @@
     font-size: 0.95rem;
     line-height: 1.4;
   }
-  
+  .expanded-section {
+  width: 100%;
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+}
