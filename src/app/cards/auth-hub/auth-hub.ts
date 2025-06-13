@@ -14,8 +14,11 @@ export class AuthHub implements OnInit {
   tableData: any[] = [];
   searchTerm: string = '';
   searchColumn: string = 'ID';
+  showTable: boolean = true;
   showForm: boolean = false;
   isUpdateMode: boolean = false;
+  showFormDel: boolean = false;
+  deleteId: number | null = null;
 
   // Form fields
   authField1 = '';
@@ -74,17 +77,31 @@ export class AuthHub implements OnInit {
     this.clearForm();
     this.isUpdateMode = false;
     this.showForm = true;
+    this.showFormDel = false;
+    this.showTable = false;
   }
+
 
   showUpdateForm() {
     this.clearForm();
     this.isUpdateMode = true;
     this.showForm = true;
+    this.showFormDel = false;
+    this.showTable = false;
   }
+
+  showDeleteForm() {
+    this.clearForm();
+    this.showFormDel = true;
+    this.showTable = false;
+  }
+
 
   backToTable(){
     this.clearForm();
     this.showForm = false;
+    this.showFormDel =false;
+    this.showTable = true;
   }
 
   clearForm() {
@@ -151,4 +168,29 @@ export class AuthHub implements OnInit {
         alert('Submit failed');
       }
     });
-  }}
+  }
+deleteData() {
+  if (!this.deleteId) {
+    alert('Please enter a valid ID to delete.');
+    return;
+  }
+
+  this.http.delete<any>(`http://localhost:3000/api/authhub/delete/${this.deleteId}`)
+    .subscribe({
+      next: (res) => {
+        alert(res.message);
+        this.loadTable(); // Refresh table
+        this.deleteId = 0;   // Clear input
+      },
+      error: (err) => {
+        if (err.status === 404) {
+          alert(err.error.message);
+        } else {
+          alert('Error deleting record.');
+        }
+      }
+    });
+}
+
+
+}

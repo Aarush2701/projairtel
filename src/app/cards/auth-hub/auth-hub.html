@@ -1,5 +1,5 @@
 
-<div *ngIf="!showForm">
+<div *ngIf="showTable">
   <div class="search-bar">
     <div class="left-section">
     <label for="search">ID</label>
@@ -49,6 +49,7 @@
   <div class="auth-buttons">
     <button (click)="showAddForm()">Add</button>
     <button (click)="showUpdateForm()">Update</button>
+    <button (click)="showDeleteForm()">Delete</button>
   </div>
 </div>
 
@@ -187,3 +188,25 @@
     <button (click)="backToTable()">Back</button>
   </div>
   </div>
+  </div>
+
+<div *ngIf="showFormDel" class="auth-section">
+  <h3>Delete Record</h3>
+  <div class="auth-field"><label for="deleteId">Delete by ID:  </label>
+  <input type="text" [(ngModel)]="deleteId" [value]="deleteId === null ? '' : deleteId" required placeholder="Enter the ID"/>
+  
+  </div>
+    <!-- <div class="navbutton back-btn">
+  <button (click)="deleteData()">Delete</button> 
+    </div>
+    <div class="auth-buttons back-btn">
+    <button (click)="backToTable()">Back</button>
+    </div> -->
+    <div class="auth-buttons back-btn">
+  <button (click)="deleteData()">Delete</button> 
+    
+    <div class=" back-btn">
+    <button (click)="backToTable()">Back</button>
+    </div></div>
+
+</div>
