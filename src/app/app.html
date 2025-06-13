@@ -14,23 +14,21 @@
 <main class="main-content">
   <div class="section-card">
     <h2>Mpin</h2>
-    <p>Manage and reset your secure mobile PIN easily.</p>
   </div>
   <div class="section-card">
     <h2>Limit</h2>
-    <p>Set transaction limits and control spending securely.</p>
   </div>
   <div class="section-card" (click)="onCardSelected('auth-hub')">
     <h2>Auth-Hub</h2>
-    <p>Centralized authentication control for all services.</p>
   </div>
   
   <div class="section-card">
     <h2>Banks</h2>
-    <p>View linked bank accounts and add new providers.</p>
   </div>
 </main>
 
 <div class="expanded-section">
   <app-auth-hub *ngIf="selectedCard === 'auth-hub'"></app-auth-hub>
+
+
 </div>
