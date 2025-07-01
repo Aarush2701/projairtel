@@ -175,7 +175,7 @@ deleteData() {
     return;
   }
 
-  this.http.delete<any>(`http://localhost:3000/api/authhub/delete/${this.deleteId}`)
+  this.http.delete<any>(`http://localhost:3000/authhub/delete/${this.deleteId}`)
     .subscribe({
       next: (res) => {
         alert(res.message);

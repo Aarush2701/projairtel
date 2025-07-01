@@ -49,7 +49,8 @@
   <div class="auth-buttons">
     <button (click)="showAddForm()">Add</button>
     <button (click)="showUpdateForm()">Update</button>
-    <button (click)="showDeleteForm()">Delete</button>
+    <div class="del-btn">
+    <button (click)="showDeleteForm()">Delete</button></div>
   </div>
 </div>
 
@@ -202,11 +203,16 @@
     <div class="auth-buttons back-btn">
     <button (click)="backToTable()">Back</button>
     </div> -->
-    <div class="auth-buttons back-btn">
-  <button (click)="deleteData()">Delete</button> 
+    <div class="auth-buttons">
+      <div class="del-btn">
+    <button (click)="deleteData()">Delete</button> </div>
     
     <div class=" back-btn">
     <button (click)="backToTable()">Back</button>
     </div></div>
 
 </div>
+
+
+
+
